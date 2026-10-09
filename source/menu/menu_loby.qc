@@ -118,6 +118,7 @@ void() Menu_Lobby =
         case 4: gamemode = "WILD WEST"; break;
         case 5: gamemode = "STICKS & STONES"; break;
         case 6: gamemode = "FEVER"; break;
+        case 7: gamemode = "MADMAN"; break;
         default: gamemode = "???"; break;
     }
 

@@ -65,6 +65,7 @@ void() Gamemode_Init =
         case GAMEMODE_STICKSNSTONES: Gamemode_Sticks_Init(); break;
         case GAMEMODE_WILDWEST: Gamemode_WW_Init(); break;
         case GAMEMODE_FESTIVE: Gamemode_Festive_Init(); break;
+        case GAMEMODE_MADMAN: Gamemode_Madman_Init(); break;
         default: error("Received unrecognized gamemode."); break;
     }
 };
@@ -83,6 +84,7 @@ void() Gamemode_Frame =
         case GAMEMODE_STICKSNSTONES: Gamemode_Sticks_Frame(); break;
         case GAMEMODE_WILDWEST: Gamemode_WW_Frame(); break;
         case GAMEMODE_FESTIVE: Gamemode_Festive_Frame(); break;
+        case GAMEMODE_MADMAN: break;
         default: error("Received unrecognized gamemode."); break;
     }
 
@@ -111,6 +113,7 @@ void() Gamemode_PlayerSpawn =
         case GAMEMODE_STICKSNSTONES: Gamemode_Sticks_PlayerSpawn(); break;
         case GAMEMODE_WILDWEST: Gamemode_WW_PlayerSpawn(); break;
         case GAMEMODE_FESTIVE: Gamemode_Festive_PlayerSpawn(); break;
+        case GAMEMODE_MADMAN: break;
         default: error("Received unrecognized gamemode."); break;
     }
 };
@@ -245,6 +248,7 @@ float(float current_count, float current_round, float round_type, float current_
 {
     switch(current_gamemode) {
         case GAMEMODE_FESTIVE: return Gamemode_Festive_GetZombieTotalForRound(current_count, current_round, round_type, current_player_count);
+        case GAMEMODE_MADMAN: return Gamemode_Madman_GetZombieTotalForRound(current_count, current_round, round_type, current_player_count);
         default: break;
     }
 
@@ -255,6 +259,7 @@ float(float current_health, float current_round) Gamemode_GetZombieHealthForRoun
 {
     switch(current_gamemode) {
         case GAMEMODE_FESTIVE: return Gamemode_Festive_GetZombieHealthForRound(current_health, current_round);
+        case GAMEMODE_MADMAN: return Gamemode_Madman_GetZombieHealthForRound(current_health, current_round);
         default: break;
     }
 
